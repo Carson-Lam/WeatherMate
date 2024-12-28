@@ -1,0 +1,15 @@
+{
+    "manifest_version": 3,
+    "name": "WeatherMate",
+    "version": "1.0.0",
+    "description": "Display your local city's weather according to OpenWeather's API",
+    "author": "Carson Lam",
+    "action": {
+        "default_popup": "index.html",
+        "default_title": "WeatherMate"
+    },
+    "icons": {
+        "48": "icon48.png",
+        "128": "icon128.png"
+    }
+}
