@@ -2,7 +2,7 @@
 // console.log(apiKey)
 async function fetchData(){
     const city = 'Markham';
-    const res = await fetch (`http://localhost:5000/weather?city=${city}`);
+    const res = await fetch (`https://weathermate-pr27.onrender.com/weather?city=${city}`);
     
     const record = await res.json();
     document.getElementById("city").innerHTML = record.name;
