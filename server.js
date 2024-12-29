@@ -1,16 +1,10 @@
-const express = require('express');
 const dotenv = require('dotenv');
 const axios = require('axios');
-const cors = require('cors');
 
 dotenv.config();
 
-const app = express();
 const port = process.env.PORT || 5000;
 const apiKey = process.env.OPENWEATHER_API_KEY;
-
-
-app.use(cors());
 
 app.get('/weather', async (req, res) => {
   const city = req.query.city || 'Toronto';
