@@ -5,30 +5,36 @@
         <meta charset = "utf-8">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
     </head>
-<body>
-    <div class = "container mt-3" style = "width: 450px;">
-        <h2 class = "text-center">WeatherMate</h2>
-        <table class = "table table-bordered">
-            <thead>
-                <tr>
-                    <th>City</th>
-                    <th>Weather</th>
-                    <th>Temp</th>
-                    <th>Max Temp</th>
-                    <th>Min Temp</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td id = "city"></td>
-                    <td id = "weather"></td>
-                    <td id = "temp"></td>
-                    <td id = "maxtemp"></td>
-                    <td id = "mintemp"></td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-    <script src = "script.js"></script>
-</body>
+    <body class = "text-center">
+        <div class = "container mt-3 mb-3" style = "width: 450px;">
+            <h2 >WeatherMate</h2>
+            <table class = "table table-bordered">
+                <thead>
+                    <tr>
+                        <th>City</th>
+                        <th>Weather</th>
+                        <th>Temp</th>
+                        <th>Max Temp</th>
+                        <th>Min Temp</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td id = "cityDisplay"></td>
+                        <td id = "weather"></td>
+                        <td id = "temp"></td>
+                        <td id = "maxtemp"></td>
+                        <td id = "mintemp"></td>
+                    </tr>
+                </tbody>
+            </table>
+            <form id = "weatherForm">
+                <label for="city">Enter City:</label>
+                <input type="text" id="city" name="city" required>
+                <button type="submit">Get Weather</button>
+            </form>
+        </div>
+
+        <script src = "script.js"></script>
+    </body>
 </html>
