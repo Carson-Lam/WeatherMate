@@ -13,7 +13,7 @@ async function fetchData() {
             document.getElementById("maxtemp").innerHTML = record.main.temp_max;
             document.getElementById("mintemp").innerHTML = record.main.temp_min;
         } catch (error) {
-            alert("Please enter a valid city!")
+            alert("Could not fetch weather data for entered city!")
             document.getElementById("cityDisplay").innerHTML = " ";
             document.getElementById("weather").innerHTML = " ";
             document.getElementById("temp").innerHTML = " ";
@@ -24,3 +24,7 @@ async function fetchData() {
     });
 }
 fetchData();
+
+document.querySelector("#close").addEventListener("click", function() {
+    document.querySelector(".popup").style.display = "none";
+});
