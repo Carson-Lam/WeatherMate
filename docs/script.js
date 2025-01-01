@@ -1,6 +1,29 @@
-// console.log(process.env)
-// console.log(apiKey)
 async function fetchData() {
+    window.addEventListener("load",() =>  {
+        const cityOutput = document.getElementById("cityOutput");
+        if (!navigator.geolocation){
+            cityOutput.textContent="Geolocation fetching failed";
+            return;
+        }
+        navigator.geolocation.getCurrentPosition(
+            async (position) => {
+                const {latitude, longitude} = position.coords;
+                cityOutput.textContent = `latitude:${latitude}, Longitude:${longitude}`
+                const res = await fetch(`https://weathermate-pr27.onrender.com/latlong?lat=${latitude}&lon=${longitude}`);
+                //https://weathermate-pr27.onrender.com/latlong?lat=48&lon=-79
+                const record = await res.json();
+                document.getElementById("cityDisplay").innerHTML = record.name;
+                document.getElementById("weather").innerHTML = record.weather[0].main;
+                document.getElementById("temp").innerHTML = record.main.temp;
+                document.getElementById("maxtemp").innerHTML = record.main.temp_max;
+                document.getElementById("mintemp").innerHTML = record.main.temp_min;
+            },
+            (error) => {
+                cityOutput.textContent = `Error: ${error.message}`;
+            }
+        )
+    });
+
     document.getElementById("weatherForm").addEventListener("submit", async function (event) {
         try {
             event.preventDefault();
