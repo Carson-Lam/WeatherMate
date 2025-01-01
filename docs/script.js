@@ -7,9 +7,10 @@ async function fetchData() {
         }
         navigator.geolocation.getCurrentPosition(
             async (position) => {
-                const {latitude, longitude} = position.coords;
+                const {longitude, latitude} = position.coords;
                 cityOutput.textContent = `latitude:${latitude}, Longitude:${longitude}`
                 const res = await fetch(`https://weathermate-pr27.onrender.com/weather?lat=${latitude}&lon=${longitude}`);
+                //https://weathermate-pr27.onrender.com/weather?lat=48&lon=-79
                 const record = await res.json();
                 document.getElementById("cityDisplay").innerHTML = record.name;
                 document.getElementById("weather").innerHTML = record.weather[0].main;
@@ -28,6 +29,7 @@ async function fetchData() {
             event.preventDefault();
             const city = document.getElementById('city').value;
             const res = await fetch(`https://weathermate-pr27.onrender.com/weather?city=${city}`);
+            //https://weathermate-pr27.onrender.com/weather?city=toronto
             const record = await res.json();
             document.getElementById("cityDisplay").innerHTML = record.name;
             document.getElementById("weather").innerHTML = record.weather[0].main;
