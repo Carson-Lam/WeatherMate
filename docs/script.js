@@ -9,8 +9,7 @@ async function fetchData() {
             async (position) => {
                 const {latitude, longitude} = position.coords;
                 cityOutput.textContent = `latitude:${latitude}, Longitude:${longitude}`
-                const res = await fetch(`https://weathermate-pr27.onrender.com/latlong?lat=${latitude}&lon=${longitude}`);
-                //https://weathermate-pr27.onrender.com/latlong?lat=48&lon=-79
+                const res = await fetch(`https://weathermate-pr27.onrender.com/weather?lat=${latitude}&lon=${longitude}`);
                 const record = await res.json();
                 document.getElementById("cityDisplay").innerHTML = record.name;
                 document.getElementById("weather").innerHTML = record.weather[0].main;
