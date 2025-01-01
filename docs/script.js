@@ -1,6 +1,5 @@
 async function fetchData() {
-    window.addEventListener("load",() =>  {
-        const cityOutput = document.getElementById("cityOutput");
+    // window.addEventListener("load",() =>  {
         if (!navigator.geolocation){
             cityOutput.textContent="Geolocation fetching failed";
             return;
@@ -20,7 +19,7 @@ async function fetchData() {
                 cityOutput.textContent = `Error: ${error.message}`;
             }
         )
-    });
+    // });
 
     document.getElementById("weatherForm").addEventListener("submit", async function (event) {
         try {
