@@ -1,3 +1,11 @@
+function showPopup(){
+    if (!localStorage.getItem('popupSeen')) {
+        document.querySelector(".popup").style.display = "flex";
+    } else {   
+        document.querySelector(".popup").style.display = "none";
+    }
+} 
+
 async function fetchData() {
     // window.addEventListener("load",() =>  {
         if (!navigator.geolocation){
@@ -47,4 +55,8 @@ fetchData();
 
 document.querySelector("#close").addEventListener("click", function() {
     document.querySelector(".popup").style.display = "none";
+    localStorage.setItem('popupSeen', 'true');
 });
+
+
+showPopup();
